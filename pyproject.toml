@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "fs-fastapi-celery"
+version = "0.1.0"
+description = "Use case of Celery in FastAPI application to provide asynchronous task processing"
+authors = ["sanggusti <gustiowinata0@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
+celery = "^5.1.2"
+redis = "^3.5.3"
+flower = "1.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
