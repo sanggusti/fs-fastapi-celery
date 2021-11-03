@@ -5,5 +5,5 @@ from celery import shared_task
 def divide(x, y):
     import time
 
-    time.sleep(5)
+    time.sleep(4)
     return x / y
