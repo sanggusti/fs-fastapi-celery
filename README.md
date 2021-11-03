@@ -1,12 +1,22 @@
 # fs-fastapi-celery
 A definitive guide to Celery and FastApi
 
--- Via PR#2
+## How to run the app
 
-Adding redis, celery and flower job, assuming already run redis image in docker, description on how to run:
+Via docker-compose
+
+```bash
+docker-compose build
+docker-compose up -d
+```
+
+Via Locally
 
 ```bash
 poetry install
+
+# run redis image in daemon mode
+docker run -p 6379:6379 --name some-redis -d redis
 
 # first terminal: run celery
 celery -A main.celery worker --loglevel=info
