@@ -16,6 +16,8 @@ alembic = "1.6.5"
 SQLAlchemy = "1.4.20"
 psycopg2-binary = "2.9.1"
 watchgod = "0.7"
+Jinja2 = "3.0.1"
+requests = "2.25.1"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
