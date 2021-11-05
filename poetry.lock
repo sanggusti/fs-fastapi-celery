@@ -52,6 +52,17 @@ python-versions = ">=3.6"
 tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 
 [[package]]
+name = "asyncio-redis"
+version = "0.16.0"
+description = "PEP 3156 implementation of the redis protocol."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+hiredis = ["hiredis"]
+
+[[package]]
 name = "billiard"
 version = "3.6.4.0"
 description = "Python multiprocessing fork with improvements and bugfixes"
@@ -85,6 +96,19 @@ d = ["aiohttp (>=3.7.4)"]
 jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 python2 = ["typed-ast (>=1.4.3)"]
 uvloop = ["uvloop (>=0.15.2)"]
+
+[[package]]
+name = "broadcaster"
+version = "0.2.0"
+description = "Simple broadcast channels."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+kafka = ["aiokafka"]
+postgres = ["asyncpg"]
+redis = ["asyncio-redis"]
 
 [[package]]
 name = "celery"
@@ -613,7 +637,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f8c3005d06c9edece4756b094d236ee32db4f1ac100d00914ac2d9a2ef346233"
+content-hash = "d7a3147a33ebe294ac2045ad3b70ba46ae179479fc069fd781516b6997ee35fe"
 
 [metadata.files]
 alembic = [
@@ -632,6 +656,10 @@ asgiref = [
     {file = "asgiref-3.4.1-py3-none-any.whl", hash = "sha256:ffc141aa908e6f175673e7b1b3b7af4fdb0ecb738fc5c8b88f69f055c2415214"},
     {file = "asgiref-3.4.1.tar.gz", hash = "sha256:4ef1ab46b484e3c706329cedeff284a5d40824200638503f5768edb6de7d58e9"},
 ]
+asyncio-redis = [
+    {file = "asyncio_redis-0.16.0-py2.py3-none-any.whl", hash = "sha256:4a134fde5ea3628ff0c7118e2424b0f26140a1bd21d5e4632058f1f662773686"},
+    {file = "asyncio_redis-0.16.0.tar.gz", hash = "sha256:ff8ce4e7e22a08e2688ae6b397aeac355473e343ce3c68ae3b713494318d848b"},
+]
 billiard = [
     {file = "billiard-3.6.4.0-py3-none-any.whl", hash = "sha256:87103ea78fa6ab4d5c751c4909bcff74617d985de7fa8b672cf8618afd5a875b"},
     {file = "billiard-3.6.4.0.tar.gz", hash = "sha256:299de5a8da28a783d51b197d496bef4f1595dd023a93a4f59dde1886ae905547"},
@@ -639,6 +667,10 @@ billiard = [
 black = [
     {file = "black-21.10b0-py3-none-any.whl", hash = "sha256:6eb7448da9143ee65b856a5f3676b7dda98ad9abe0f87fce8c59291f15e82a5b"},
     {file = "black-21.10b0.tar.gz", hash = "sha256:a9952229092e325fe5f3dae56d81f639b23f7131eb840781947e4b2886030f33"},
+]
+broadcaster = [
+    {file = "broadcaster-0.2.0-py3-none-any.whl", hash = "sha256:50f93d1af7e9097a87ef3b2da269b4b4c5630ec080dc5c7f941ef314291937b1"},
+    {file = "broadcaster-0.2.0.tar.gz", hash = "sha256:72056f9b77b091dd4bbad4d7484bd0e6835c3443d4564d0bbf41190c29c606c6"},
 ]
 celery = [
     {file = "celery-5.1.2-py3-none-any.whl", hash = "sha256:9dab2170b4038f7bf10ef2861dbf486ddf1d20592290a1040f7b7a1259705d42"},
