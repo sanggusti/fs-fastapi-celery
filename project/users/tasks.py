@@ -48,3 +48,7 @@ def task_postrun_handler(task_id, **kwargs):
     from project.ws.views import update_celery_task_status
 
     async_to_sync(update_celery_task_status)(task_id)
+
+    from project.ws.views import update_celery_task_status_socketio
+
+    update_celery_task_status_socketio(task_id)
