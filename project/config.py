@@ -1,7 +1,13 @@
 import os
 import pathlib
-from functools import lru_cache
 from kombu import Queue
+
+
+def route_task(name, args, kwargs, options, task=None, **kw):
+    if ":" in name:
+        queue, _ = name.split(":")
+        return {"queue": queue}
+    return {"queue": "default"}
 
 
 class BaseConfig:
@@ -36,11 +42,7 @@ class BaseConfig:
         Queue("high_priority"),
         Queue("low_priority"),
     }
-    CELERY_TASK_ROUTES = {
-        "project.users.tasks.*": {
-            "queue": "high_priority",
-        }
-    }
+    CELERY_TASK_ROUTES = (route_task,)
 
 
 class DevelopmentConfig(BaseConfig):
@@ -55,7 +57,6 @@ class TestingConfig(BaseConfig):
     pass
 
 
-@lru_cache()
 def get_settings():
     config_cls_dict = {
         "development": DevelopmentConfig,
