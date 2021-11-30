@@ -9,6 +9,10 @@ broadcast = Broadcast(settings.WS_MESSAGE_QUEUE)
 def create_app() -> FastAPI:
     app = FastAPI()
 
+    from project.logging import configure_logging
+
+    configure_logging()
+
     from project.celery_utils import create_celery
 
     app.celery_app = create_celery()
