@@ -91,6 +91,21 @@ def task_test_logger():
     logger.info("test")
 
 
+@shared_task(bind=True)
+def task_add_subscribe(self, user_pk):
+    with db_context() as session:
+        try:
+            from project.users.models import User
+
+            user = session.query(User).get(user_pk)
+            requests.post(
+                "https://httpbin.org/delay/5",
+                data={"email": user.email},
+            )
+        except Exception as exc:
+            raise self.retry(exc=exc)
+
+
 @after_setup_logger.connect()
 def on_after_setup_logger(logger, **kwargs):
     formatter = logger.handlers[0].formatter
