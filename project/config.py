@@ -54,7 +54,9 @@ class ProductionConfig(BaseConfig):
 
 
 class TestingConfig(BaseConfig):
-    pass
+    # https://fastapi.tiangolo.com/advanced/testing-database/
+    DATABASE_URL: str = "sqlite:///./test.db"
+    DATABASE_CONNECT_DICT: dict = {"check_same_thread": False}
 
 
 def get_settings():
