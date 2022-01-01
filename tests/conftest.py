@@ -7,8 +7,10 @@ os.environ["FASTAPI_CONFIG"] = "testing"  # noqa
 
 from pytest_factoryboy import register
 from project.users.factories import UserFactory
+from project.tdd.factories import MemberFactory
 
 register(UserFactory)
+register(MemberFactory)
 
 
 @pytest.fixture

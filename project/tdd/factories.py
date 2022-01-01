@@ -26,17 +26,11 @@ class MemberFactory(factory.alchemy.SQLAlchemyModelFactory):
         height = 300
         color = "blue"
         image_format = "JPEG"
-        image_pallete = "RGB"
+        image_palette = "RGB"
 
-        with Image.new(image_pallete, (width, height), color) as thumb:
+        with Image.new(image_palette, (width, height), color) as thumb:
             filename = f"{self.username}.jpg"
             full_path = os.path.join(settings.UPLOADS_DEFAULT_DEST, filename)
             thumb.save(full_path, format=image_format)
 
         return filename
-
-
-def test_model(db_session, member):
-    assert member.username
-    assert member.avatar
-    assert not member.avatar_thumbnail
