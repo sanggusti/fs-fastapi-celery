@@ -22,7 +22,7 @@ docker run -p 6379:6379 --name some-redis -d redis
 celery -A main.celery worker --loglevel=info
 
 # second terminal: run flower
-celery -A main.celery fower --port=5555
+celery -A main.celery flower --port=5555
 
 # third terminal: execute python tasks
 python
